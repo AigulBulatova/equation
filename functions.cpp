@@ -1,19 +1,30 @@
 #include <stdio.h>
 #include <math.h>
+#include <assert.h>
 
 #include "functions.h"
-void input(struct Equation* equation)
+
+//------------------------------------------------------------------
+void input_of_args(struct Equation* equation)
 {
-    printf("Please enter the coefficients a, b and c of the equation a * x^2 + b * x + c = 0 in the form \"a b c\"\n");
+    assert (equation != NULL);
+
+    printf("Please enter the coefficients a, b and c of the equation"
+            " a * x^2 + b * x + c = 0 in the form \"a b c\"\n");
+
     int input = scanf("%lf %lf %lf", &(equation->a), &(equation->b), &(equation->c));
     while (input != 3) {
         printf("Incorrect coefficient entry. Try again\n");
     }
 }
 
-void output(struct Equation* equation, int num_of_roots)
+//------------------------------------------------------------------
+
+void show_args(struct Equation* equation)
 {
-    switch (num_of_roots) {
+    assert (equation != NULL);
+
+    switch(equation->num_of_roots) {
         case NO_ROOTS:
             printf("The equation has no roots.\n");
             break;
@@ -27,32 +38,40 @@ void output(struct Equation* equation, int num_of_roots)
             printf("The equation has an infinite number of roots.\n");
             break;
         case default:
-            printf("Something strange.\n")
+            printf("Unexpected amount of roots.\n");
     }
 }
 
-int solve_linear(struct Equation* equation)
+//------------------------------------------------------------------
+
+void solve_linear_case(struct Equation* equation)
 {
+    assert(equation != NULL);
+
     double b = equation->b;
     double c = equation->c;
 
     if (isequal(b, 0)) {
         if (isequal(c, 0)) {
-            return INF_ROOTS;
+            equation->num_of_roots = INF_ROOTS;
         }
         else {
-            return NO_ROOTS;
+            equation->num_of_roots = NO_ROOTS;
         }
     }
     else {
         equation->x1 = - c / b;
-        return ONE_ROOT;
+        equation->num_of_roots = ONE_ROOT;
     }
 
 }
 
-int solve_quadratic(struct Equation *equation)
+//------------------------------------------------------------------
+
+void solve_quadratic_case(struct Equation *equation)
 {
+    assert (equation != NULL);
+
     double a = equation->a;
     double b = equation->b;
     double c = equation->c;
@@ -61,33 +80,31 @@ int solve_quadratic(struct Equation *equation)
 
     if (isequal(discr, 0)) {
         equation->x1 = - b / (2 * a);
-        return ONE_ROOT;
+        equation->num_of_roots =  ONE_ROOT;
     }
     else if (discr < 0) {
-        return NO_ROOTS;
+        equation->num_of_roots =  NO_ROOTS;
     }
     else  {
         equation->x1 = ( - b + sqrt(discr)) / (2 * a);
         equation->x2 = ( - b - sqrt(discr)) / (2 * a);
-        return TWO_ROOTS;
+        equation->num_of_roots =  TWO_ROOTS;
     }
 
 }
 
-int solve(struct Equation *equation)
+//------------------------------------------------------------------
+
+void solve_quadratic(struct Equation *equation)
 {
-    int roots_num;
+    assert (equation != NULL);
 
     if (isequal(equation->a, 0)) 
-        roots_num = linear(equation);
+        solve_linear_case(equation);
     else 
-        roots_num = quadratic(equation);
+        solve_quadratic_case(equation);
 
-    return roots_num;
 }
 
-int isequal(double num1, double num2)
-{
-    return (fabs(num1 - num2) <= EPS);
-}
+
 

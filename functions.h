@@ -1,9 +1,7 @@
-#include <stdio.h>
-
-#define EPS 1e-6 
+#pragma once
 
 
-enum num_of_roots {
+enum roots_cases {
     NO_ROOTS = 0,
     ONE_ROOT = 1,
     TWO_ROOTS = 2,
@@ -16,39 +14,40 @@ enum num_of_roots {
         double c;
         double x1;
         double x2;
+        enum roots_cases num_of_roots
 }; 
 
-/*Function solves equation
-It takes as a parameter a pointer to a structuree with coefficients and roots of equation
-The function calls solve_quadratic and solve_linear and returns number of roots
-*/
-int solve(struct Equation *equation);
+///Function solves equation
+///
+///Function calls solve_quadratic_case or solve_linear_case
+///@param equation - pointer to a structure with coefficients, roots and amount of roots
+///@see struct Equation, solve_quadratic_case(), solve_linear_case()
+void solve_quadratic(struct Equation *equation);
 
-/*Function solves quadratic equation
-It takes as a parameter a pointer to a structure with coefficients and roots of equation
-Function returns number of roots
-*/
-int solve_quadratic(struct Equation *equation);
+///Function solves quadratic equation
+///
+///Function changes variables x1, x2 and num_of_roots 
+///@param equation - pointer to a structure with coefficients, roots and amount of roots
+///@see struct Equation, solve_quadratic()
+void solve_quadratic_case(struct Equation *equation);
 
 
-/*Function solves linear equation 
-It takes as a parameter a pointer to a structure with coefficients and roots of equation
-Function returns number of roots
-*/
-int solve_linear(struct Equation* equation);
-
-/*Function compares two double values
-It takes as parameters double values num1 and num2
-Function returns 1 if num1 and num2 are equal and 0 if they aren't
-*/
-int isequal(double num1, double num2);
+///Function solves linear equation
+///
+///Function changes variables x1 and num_of_roots 
+///@param equation - pointer to a structure with coefficients, roots and amount of roots
+///@see struct Equation, solve_case()
+void solve_linear_case(struct Equation* equation);
 
 
 
-void input(struct Equation* equation);
 
-/*Function shows the results of solving the equation
-It takes as a parameter a pointer to a structure with coefficients and roots of equation and a number of roots
-Function prints the number of roots of the equation and their values if they exist 
-*/
-void output(struct Equation* equation, int num_of_roots);
+
+void input_of_args(struct Equation* equation);
+
+///Function shows the results of solving the equation
+///
+///Function prints the number of roots of the equation and their values if they exist 
+///@param equation - pointer to a structure with coefficients, roots and amount of roots
+///@see struct Equation
+void show_args(struct Equation* equation);
