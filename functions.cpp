@@ -5,12 +5,8 @@
 void input(struct Equation* equation)
 {
     printf("Please enter the coefficients a, b and c of the equation a * x^2 + b * x + c = 0 in the form \"a b c\"\n");
-    printf("Press Tab if you want to exit\n");
-
-    while (scanf("%lf %lf %lf", &(equation->a), &(equation->b), &(equation->c)) != 3) {
-         if (getchar() == '\t') {
-        //????????????
-        }
+    int input = scanf("%lf %lf %lf", &(equation->a), &(equation->b), &(equation->c));
+    while (input != 3) {
         printf("Incorrect coefficient entry. Try again\n");
     }
 }
@@ -93,14 +89,5 @@ int solve(struct Equation *equation)
 int isequal(double num1, double num2)
 {
     return (fabs(num1 - num2) <= EPS);
-}
-
-void struct_init(struct Equation *equation)
-{
-    equation->a = NAN;
-    equation->b = NAN;
-    equation->c = NAN;
-    equation->x1 = NAN
-    equation->x2 = NAN;
 }
 

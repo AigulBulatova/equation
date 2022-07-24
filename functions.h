@@ -44,7 +44,8 @@ Function returns 1 if num1 and num2 are equal and 0 if they aren't
 int isequal(double num1, double num2);
 
 
-void struct_init(struct Equation *equation);
+
+void input(struct Equation* equation);
 
 /*Function shows the results of solving the equation
 It takes as a parameter a pointer to a structure with coefficients and roots of equation and a number of roots
