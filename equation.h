@@ -1,6 +1,9 @@
 #pragma once
 
-
+///Enumeration type for possible cases of the number of roots
+///
+///0 stands for NO_ROOTS, 1 for ONE_ROOT, 2 for TWO_ROOTS and 3 for_INF_ROOTS
+///@see num_of_roots
 enum roots_cases {
     NO_ROOTS = 0,
     ONE_ROOT = 1,
@@ -8,6 +11,9 @@ enum roots_cases {
     INF_ROOTS = 3
 };
 
+///Structure for working with a quadratic equation
+///
+///Structure includes coefficients of equation, roots and amount of roots
  struct Equation {
         double a;
         double b;
@@ -51,3 +57,12 @@ void input_of_args(struct Equation* equation);
 ///@param equation - pointer to a structure with coefficients, roots and amount of roots
 ///@see struct Equation
 void show_args(struct Equation* equation);
+
+
+///Function initializes structure
+///
+///Function initializes coefficients and roots of the equation at the start
+///@param equation - pointer to a structure with coefficients, roots and amount of roots
+///@see struct Equation
+void struct_initial (struct Equation *equation);
+

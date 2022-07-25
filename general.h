@@ -1,4 +1,6 @@
+#pragma once
 
+///
 #define EPS 1e-6 
 
 ///Function compares two double values
@@ -8,3 +10,4 @@
 ///@returns 1 if num1 and num2 are equal and 0 if they aren't
 inline int isequal(double num1, double num2);
 
+ 

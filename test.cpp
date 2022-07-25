@@ -1,9 +1,9 @@
 #include <stdio.h>
 #include <math.h>
 
-
-
-static struct Equation  test[] = 
+void test_run()
+{
+struct Equation  test[] = 
 {.a = 0, .b = 0, .c = 0,  .x1 = NAN, .x2 = NAN, num_of_roots = NAN},
 {.a = 1, .b = 2, .c = 1,  .x1 = NAN, .x2 = NAN, num_of_roots = NAN},
 {.a = 1, .b = 3, .c = -4, .x1 = NAN, .x2 = NAN, num_of_roots = NAN},
@@ -12,7 +12,7 @@ static struct Equation  test[] =
 {.a = 3, .b = 1, .c = 2,  .x1 = NAN, .x2 = NAN, num_of_roots = NAN},
 {.a = 0, .b = 5, .c = 0,  .x1 = NAN, .x2 = NAN, num_of_roots = NAN};
 
-static struct Equation  answers[] = 
+struct Equation  answers[] = 
 {.x1 = NAN, .x2 = NAN, num_of_roots = INF_ROOTS},
 {.x1 = -1,  .x2 = NAN, num_of_roots = ONE_ROOT},
 {.x1 = -4,  .x2 = 1,   num_of_roots = TWO_ROOTS},
@@ -21,6 +21,8 @@ static struct Equation  answers[] =
 {.x1 = NAN, .x2 = NAN, num_of_roots = NO_ROOTS},
 {.x1 = 0,   .x2 = NAN, num_of_roots = ONE_ROOT};
 
+
+}
 
 int test_solve (struct Equation test[], const struct Equation answers[], int size)
 {
@@ -34,8 +36,8 @@ int test_solve (struct Equation test[], const struct Equation answers[], int siz
         int roots_comp = answers[num_of_test].num_of_roots != test[num_of_test].num_of_roots;
 
         if (x1_comp || x2_comp || roots_comp) {
-                mistakes++;
-                printf("Test number %d failed.\n", num_of_test);
+            mistakes++;
+            printf("Test number %d failed.\n", num_of_test);
             }
         
         if (x1_comp) {
@@ -55,6 +57,16 @@ int test_solve (struct Equation test[], const struct Equation answers[], int siz
         }
     }
     return mistakes;
+}
+
+void test_show (int mistakes) 
+{
+    if (mistakes == 0) {
+        printf("All tests complete succesfully.\n");
+    }
+    else {
+        printf("Tests failed: %d", mistakes);
+    }
 }
 
 void root_cases_print(int root_case)
@@ -77,7 +89,7 @@ void root_cases_print(int root_case)
             break;
         }
         default: {
-            printf("Error:unexpected number of roots.");
+            printf("Unexpected number of roots.");
         }
     }
 }

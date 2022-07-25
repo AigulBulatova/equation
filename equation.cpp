@@ -3,7 +3,7 @@
 #include <assert.h>
 
 #include "functions.h"
-
+ 
 //------------------------------------------------------------------
 void input_of_args(struct Equation* equation)
 {
@@ -25,20 +25,25 @@ void show_args(struct Equation* equation)
     assert (equation != NULL);
 
     switch(equation->num_of_roots) {
-        case NO_ROOTS:
+        case NO_ROOTS: {
             printf("The equation has no roots.\n");
             break;
-        case ONE_ROOT:
+        }
+        case ONE_ROOT: {
             printf("The equation has one root. x = %lf.\n", equation->x1);
             break;
-        case TWO_ROOTS:
+        }
+        case TWO_ROOTS: {
             printf("The equation has two roots. x1 = %lf, x2 = %lf.\n", equation->x1, equation->x2);
             break;
-        case INF_ROOTS:
+        }
+        case INF_ROOTS: {
             printf("The equation has an infinite number of roots.\n");
             break;
-        case default:
+        }
+        case default: {
             printf("Unexpected amount of roots.\n");
+        }
     }
 }
 
@@ -104,6 +109,18 @@ void solve_quadratic(struct Equation *equation)
     else 
         solve_quadratic_case(equation);
 
+}
+
+//------------------------------------------------------------------
+
+void struct_initial (struct Equation *equation)
+{
+    equation->a = NAN;
+    equation->b = NAN;
+    equation->c = NAN;
+    equation->x1 = NAN;
+    equation->x2 = NAN;
+    equation->num_of_roots = NAN;
 }
 
 
