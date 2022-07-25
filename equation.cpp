@@ -1,8 +1,7 @@
-#include <stdio.h>
 #include <math.h>
 #include <assert.h>
-
-#include "functions.h"
+#include "equation.h"
+#include "general.h"
  
 //------------------------------------------------------------------
 void input_of_args(struct Equation* equation)
@@ -34,7 +33,8 @@ void show_args(struct Equation* equation)
             break;
         }
         case TWO_ROOTS: {
-            printf("The equation has two roots. x1 = %lf, x2 = %lf.\n", equation->x1, equation->x2);
+            printf("The equation has two roots. x1 = %lf, x2 = %lf.\n",
+                    equation->x1, equation->x2);
             break;
         }
         case INF_ROOTS: {
@@ -115,6 +115,8 @@ void solve_quadratic(struct Equation *equation)
 
 void struct_initial (struct Equation *equation)
 {
+    assert (equation != NULL);
+
     equation->a = NAN;
     equation->b = NAN;
     equation->c = NAN;

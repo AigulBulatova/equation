@@ -1,6 +1,10 @@
 #pragma once
 
+#include <stdio.h>
+
+///A constant used to compare two double values
 ///
+///@see isequal()
 #define EPS 1e-6 
 
 ///Function compares two double values

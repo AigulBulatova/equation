@@ -1,15 +1,27 @@
 #include <stdio.h>
 #include <math.h>
 
-#include ""
+#include "equation.h"
+#define TESTING
+#ifdef TESTING
+#include "test.h"
+#endif 
+
+
+
 int main ()
 {
-   struct Equation equation;
-   struct_initial(&equation);
+#ifdef TESTING
+    test_run();
+#endif 
 
-   input_of_args(&equation);
+    struct Equation equation;
+    struct_initial(&equation);
 
-   
+    input_of_args(&equation);
 
+    solve_quadratic(&equation);
+    show_args(&equation);
+    
 }
  
