@@ -12,6 +12,9 @@
 ///@param num1 - first double value to compare
 ///@param num2 - second double value to compare 
 ///@returns 1 if num1 and num2 are equal and 0 if they aren't
-inline int isequal(double num1, double num2);
+static inline int isequal(double num1, double num2)
+{
+    return (fabs(num1 - num2) <= EPS);
+} 
 
  

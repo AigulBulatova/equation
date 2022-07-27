@@ -1,6 +1,2 @@
 1.txt
-a.out
-main.o
-test.o
-general.o
-equation.o
+obj

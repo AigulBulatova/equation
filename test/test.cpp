@@ -1,6 +1,7 @@
 #include <math.h>
 #include "test.h"
 #include "equation.h"
+#include "general.h"
 
 //-----------------------------------------------------------------
 
@@ -20,12 +21,13 @@ void test_run(void)
     struct Equation  answers[] = {
     {.x1 = NAN, .x2 = NAN, .num_of_roots = INF_ROOTS},
     {.x1 = -1,  .x2 = NAN, .num_of_roots = ONE_ROOT},
-    {.x1 = -4,  .x2 = 1,   .num_of_roots = TWO_ROOTS},
+    {.x1 = 1,  .x2 = -4,   .num_of_roots = TWO_ROOTS},
     {.x1 = NAN, .x2 = NAN, .num_of_roots = NO_ROOTS},
     {.x1 = 0.2, .x2 = NAN, .num_of_roots = ONE_ROOT},
     {.x1 = NAN, .x2 = NAN, .num_of_roots = NO_ROOTS},
     {.x1 = 0,   .x2 = NAN, .num_of_roots = ONE_ROOT}
     };
+
 
     int failed_tests = test_solve(test, answers, sizeof (test) / sizeof (test[0]));
     test_show(failed_tests);
@@ -39,16 +41,16 @@ int test_solve (struct Equation test[], const struct Equation answers[], int siz
     int failed_test = 0;
     int num_of_test;
     
-    for(num_of_test = 0; num_of_test <= size; num_of_test++) {
+    for(num_of_test = 0; num_of_test < size; num_of_test++) {
         solve_quadratic(&test[num_of_test]);
 
-        int x1_comp = answers[num_of_test].x1 != test[num_of_test].x1;
-        int x2_comp = answers[num_of_test].x2 != test[num_of_test].x2;
-        int nroots_comp = answers[num_of_test].num_of_roots != test[num_of_test].num_of_roots;
+        int x1_comp = !isequal(answers[num_of_test].x1, test[num_of_test].x1);
+        int x2_comp = !isequal(answers[num_of_test].x2, test[num_of_test].x2);
+        int nroots_comp = !isequal(answers[num_of_test].num_of_roots, test[num_of_test].num_of_roots);
 
         if (x1_comp || x2_comp || nroots_comp) {
             failed_test++;
-            printf("Test number %d failed.\n", num_of_test);
+            printf("Test number %d failed.\n", num_of_test + 1);
             }
         
         if (x1_comp) {
@@ -80,7 +82,8 @@ void test_show (int failed_test)
         printf("All tests complete succesfully.\n");
     }
     else {
-        printf("Tests failed: %d", failed_test);
+        printf("Tests failed: %d\n", failed_test);
+        exit(0);
     }
 }
 
