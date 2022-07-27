@@ -1,6 +1,7 @@
-#include <general.h>
+#include <math.h>
+#include "general.h"
 
-int isequal(double num1, double num2)
+inline int isequal(double num1, double num2)
 {
     return (fabs(num1 - num2) <= EPS);
 } 

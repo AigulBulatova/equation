@@ -1,28 +1,31 @@
 #include <math.h>
-#include "test.h>"
+#include "test.h"
+#include "equation.h"
 
 //-----------------------------------------------------------------
 
 void test_run(void)
 {
 
-    struct Equation  test[] = 
-    {.a = 0, .b = 0, .c = 0,  .x1 = NAN, .x2 = NAN, num_of_roots = NAN},
-    {.a = 1, .b = 2, .c = 1,  .x1 = NAN, .x2 = NAN, num_of_roots = NAN},
-    {.a = 1, .b = 3, .c = -4, .x1 = NAN, .x2 = NAN, num_of_roots = NAN},
-    {.a = 0, .b = 0, .c = 1,  .x1 = NAN, .x2 = NAN, num_of_roots = NAN},
-    {.a = 0, .b = 5, .c = -1, .x1 = NAN, .x2 = NAN, num_of_roots = NAN},
-    {.a = 3, .b = 1, .c = 2,  .x1 = NAN, .x2 = NAN, num_of_roots = NAN},
-    {.a = 0, .b = 5, .c = 0,  .x1 = NAN, .x2 = NAN, num_of_roots = NAN};
+    struct Equation  test[] = {
+    {.a = 0, .b = 0, .c = 0,  .x1 = NAN, .x2 = NAN, .num_of_roots = NO_ROOTS},
+    {.a = 1, .b = 2, .c = 1,  .x1 = NAN, .x2 = NAN, .num_of_roots = NO_ROOTS},
+    {.a = 1, .b = 3, .c = -4, .x1 = NAN, .x2 = NAN, .num_of_roots = NO_ROOTS},
+    {.a = 0, .b = 0, .c = 1,  .x1 = NAN, .x2 = NAN, .num_of_roots = NO_ROOTS},
+    {.a = 0, .b = 5, .c = -1, .x1 = NAN, .x2 = NAN, .num_of_roots = NO_ROOTS},
+    {.a = 3, .b = 1, .c = 2,  .x1 = NAN, .x2 = NAN, .num_of_roots = NO_ROOTS},
+    {.a = 0, .b = 5, .c = 0,  .x1 = NAN, .x2 = NAN, .num_of_roots = NO_ROOTS}
+    };
 
-    struct Equation  answers[] = 
-    {.x1 = NAN, .x2 = NAN, num_of_roots = INF_ROOTS},
-    {.x1 = -1,  .x2 = NAN, num_of_roots = ONE_ROOT},
-    {.x1 = -4,  .x2 = 1,   num_of_roots = TWO_ROOTS},
-    {.x1 = NAN, .x2 = NAN, num_of_roots = NO_ROOTS},
-    {.x1 = 0.2, .x2 = NAN, num_of_roots = ONE_ROOT},
-    {.x1 = NAN, .x2 = NAN, num_of_roots = NO_ROOTS},
-    {.x1 = 0,   .x2 = NAN, num_of_roots = ONE_ROOT};
+    struct Equation  answers[] = {
+    {.x1 = NAN, .x2 = NAN, .num_of_roots = INF_ROOTS},
+    {.x1 = -1,  .x2 = NAN, .num_of_roots = ONE_ROOT},
+    {.x1 = -4,  .x2 = 1,   .num_of_roots = TWO_ROOTS},
+    {.x1 = NAN, .x2 = NAN, .num_of_roots = NO_ROOTS},
+    {.x1 = 0.2, .x2 = NAN, .num_of_roots = ONE_ROOT},
+    {.x1 = NAN, .x2 = NAN, .num_of_roots = NO_ROOTS},
+    {.x1 = 0,   .x2 = NAN, .num_of_roots = ONE_ROOT}
+    };
 
     int failed_tests = test_solve(test, answers, sizeof (test) / sizeof (test[0]));
     test_show(failed_tests);
@@ -49,12 +52,12 @@ int test_solve (struct Equation test[], const struct Equation answers[], int siz
             }
         
         if (x1_comp) {
-            printf("Received value for x1 %lf instead of %lf\n",
+            printf("Received value for x1 %lf instead of %lf.\n",
                    test[num_of_test].x1, answers[num_of_test].x1);
         }
 
         if (x2_comp) {
-            printf("Received value for x2 %lf instead of %lf\n",
+            printf("Received value for x2 %lf instead of %lf.\n",
                    test[num_of_test].x2, answers[num_of_test].x2);
         }
 
@@ -63,7 +66,7 @@ int test_solve (struct Equation test[], const struct Equation answers[], int siz
             root_cases_print(test[num_of_test].num_of_roots);
             printf(". Expected number of roots: ");
             root_cases_print(answers[num_of_test].num_of_roots);
-            printf("\n");
+            printf(".\n");
         }
     }
     return failed_test;

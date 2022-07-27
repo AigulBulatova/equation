@@ -22,7 +22,7 @@ enum roots_cases {
         double c;
         double x1;
         double x2;
-        enum roots_cases num_of_roots
+        enum roots_cases num_of_roots;
 }; 
 
 ///Function solves equation

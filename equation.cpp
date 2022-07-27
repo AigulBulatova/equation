@@ -41,7 +41,7 @@ void show_args(struct Equation* equation)
             printf("The equation has an infinite number of roots.\n");
             break;
         }
-        case default: {
+        default: {
             printf("Unexpected amount of roots.\n");
         }
     }
@@ -122,7 +122,7 @@ void struct_initial (struct Equation *equation)
     equation->c = NAN;
     equation->x1 = NAN;
     equation->x2 = NAN;
-    equation->num_of_roots = NAN;
+    equation->num_of_roots = NO_ROOTS;
 }
 
 
