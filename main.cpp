@@ -1,10 +1,10 @@
 #include <stdio.h>
 #include <math.h>
 
-#include "equation.h"
+#include "equation/equation.h"
 #define TESTING
 #ifdef TESTING
-#include "test.h"
+#include "test/test.h"
 #endif 
 
 
@@ -22,6 +22,7 @@ int main ()
 
     solve_quadratic(&equation);
     show_args(&equation);
-    
+
+    return 0;
 }
  

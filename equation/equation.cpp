@@ -1,7 +1,7 @@
 #include <math.h>
 #include <assert.h>
 #include "equation.h"
-#include "general.h"
+#include "../general/general.h"
  
 //------------------------------------------------------------------
 void input_of_args(struct Equation* equation)
@@ -11,10 +11,20 @@ void input_of_args(struct Equation* equation)
     printf("Please enter the coefficients a, b and c of the equation"
             " a * x^2 + b * x + c = 0 in the form \"a b c\"\n");
 
-    int input = scanf("%lf %lf %lf", &(equation->a), &(equation->b), &(equation->c));
-    while (input != 3) {
-        printf("Incorrect coefficient entry. Try again\n");
+    int input = 0;
+    while (input == 0) {
+        if (scanf("%lf %lf %lf", &(equation->a), &(equation->b), &(equation->c)) != 3) {
+            printf("Incorrect coefficient entry. Try again\n");
+            while (cleaner() == 0) {;}
+        }
+        else 
+            input = 1;
     }
+}
+
+int  cleaner (void)
+{
+    return (getchar() != '\n') ? 0 : 1;
 }
 
 //------------------------------------------------------------------
@@ -29,11 +39,11 @@ void show_args(struct Equation* equation)
             break;
         }
         case ONE_ROOT: {
-            printf("The equation has one root. x = %lf.\n", equation->x1);
+            printf("The equation has one root. x = %.2lf.\n", equation->x1);
             break;
         }
         case TWO_ROOTS: {
-            printf("The equation has two roots. x1 = %lf, x2 = %lf.\n",
+            printf("The equation has two roots. x1 = %.2lf, x2 = %.2lf.\n",
                     equation->x1, equation->x2);
             break;
         }

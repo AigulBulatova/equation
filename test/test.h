@@ -33,3 +33,5 @@ void test_show (int failed_test);
 ///@param root_case defines a number of roots.
 ///@see test_solve().
 void root_cases_print(int root_case);
+
+int root_compare(double x_test, double x_answers);

@@ -50,6 +50,7 @@ void solve_linear_case(struct Equation* equation);
 
 
 void input_of_args(struct Equation* equation);
+int  cleaner (void);
 
 ///Function shows the results of solving the equation
 ///

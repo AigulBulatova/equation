@@ -1,3 +1,8 @@
+OBJ   = obj/main.o      \
+		obj/general.o   \
+		obj/equation.o  \
+		obj/test.o    
+
 FLAGS = -lubsan -D NDEBUG -g -std=c++14 -fmax-errors=1 			  	\
 		-Wc++0x-compat -Wc++11-compat -Wc++14-compat  				\
 		-Wcast-qual -Wchar-subscripts -Wconditionally-supported 	\
@@ -31,20 +36,23 @@ FLAGS = -lubsan -D NDEBUG -g -std=c++14 -fmax-errors=1 			  	\
 
 all: global
 
-global: main.o equation.o general.o test.o
-	gcc main.o equation.o general.o test.o -o equation -lm $(FLAGS)
+global: $(OBJ)
+	gcc $(OBJ) -o obj/equation -lm $(FLAGS)
 
-main.o: main.cpp equation.h test.h
-	gcc -c main.cpp	$(FLAGS)
+obj/main.o: main.cpp equation/equation.h test/test.h
+	gcc main.cpp -c -o obj/main.o	$(FLAGS)
 
-equation.o: equation.cpp equation.h general.h
-	gcc -c equation.cpp $(FLAGS)
+obj/equation.o: equation/equation.cpp equation/equation.h general/general.h
+	gcc equation/equation.cpp -c -o obj/equation.o $(FLAGS)
 
-general.o: general.cpp general.h
-	gcc -c general.cpp $(FLAGS)
+obj/general.o: general/general.cpp general/general.h
+	gcc general/general.cpp -c -o obj/general.o $(FLAGS)
 
-test.o: test.cpp test.h equation.h 
-	gcc -c test.cpp $(FLAGS)
+obj/test.o: test/test.cpp test/test.h equation/equation.h 
+	gcc test/test.cpp -c -o obj/test.o $(FLAGS)
+
+
+.PHONY: cleanup
 
 cleanup:
 	rm -rm *.0 equation
