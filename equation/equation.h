@@ -48,9 +48,13 @@ void solve_quadratic_case(struct Equation *equation);
 void solve_linear_case(struct Equation* equation);
 
 
-
+///Function read coefficients of equation
+///
+///Function receives on input 3 double values. 
+///In case of input error function calls input_cleaner() and user can try again.
+///@param equation - pointer to a structure with coefficients, roots and amount of roots.
+///@see struct Equation, input_cleaner()
 void input_of_args(struct Equation* equation);
-int  cleaner (void);
 
 ///Function shows the results of solving the equation
 ///

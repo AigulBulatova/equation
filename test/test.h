@@ -34,4 +34,10 @@ void test_show (int failed_test);
 ///@see test_solve().
 void root_cases_print(int root_case);
 
+///Function compares two double values
+///
+///This function used to compare roots of equation in tests and includes the NAN case
+///@param x_test - first double value to compare
+///@param x_answers - second double value to compare
+///@returns 1 if x_test and x_answers are equal and 0 if they aren't
 int root_compare(double x_test, double x_answers);

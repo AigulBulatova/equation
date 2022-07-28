@@ -1,4 +1,4 @@
-#include <math.h>
+
 #include <assert.h>
 #include "equation.h"
 #include "../general/general.h"
@@ -15,16 +15,11 @@ void input_of_args(struct Equation* equation)
     while (input == 0) {
         if (scanf("%lf %lf %lf", &(equation->a), &(equation->b), &(equation->c)) != 3) {
             printf("Incorrect coefficient entry. Try again\n");
-            while (cleaner() == 0) {;}
+            input_cleaner();
         }
         else 
             input = 1;
     }
-}
-
-int  cleaner (void)
-{
-    return (getchar() != '\n') ? 0 : 1;
 }
 
 //------------------------------------------------------------------

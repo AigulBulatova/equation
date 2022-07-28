@@ -44,8 +44,8 @@ int test_solve (struct Equation test[], const struct Equation answers[], int siz
     for(num_of_test = 0; num_of_test < size; num_of_test++) {
         solve_quadratic(&test[num_of_test]);
 
-        int x1_comp = root_compare(test[num_of_test].x1, answers[num_of_test].x1);
-        int x2_comp = root_compare(test[num_of_test].x2, answers[num_of_test].x2);
+        int x1_comp = !root_compare(test[num_of_test].x1, answers[num_of_test].x1);
+        int x2_comp = !root_compare(test[num_of_test].x2, answers[num_of_test].x2);
         int nroots_comp = answers[num_of_test].num_of_roots != test[num_of_test].num_of_roots;
 
 
@@ -121,14 +121,14 @@ int root_compare(double x_test, double x_answers)
 {
     int comp = 0;
     if (isnan(x_answers) && isnan(x_test)) {
-        comp = 0;
+        comp = 1;
     } 
     else if ((isnan(x_answers) && !isnan(x_test)) 
             || (!isnan(x_answers) && isnan(x_test))) {
-        comp = 1;
+        comp = 0;
     }
     else {
-        comp = !isequal(x_answers, x_test);
+        comp = isequal(x_answers, x_test);
     }
 
     return comp;

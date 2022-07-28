@@ -1,6 +1,7 @@
 #pragma once
 
 #include <stdio.h>
+#include <math.h>
 
 ///A constant used to compare two double values
 ///
@@ -16,5 +17,8 @@ static inline int isequal(double num1, double num2)
 {
     return (fabs(num1 - num2) <= EPS);
 } 
-
+///Function cleans input
+///
+///This function used to clean the input that is not expected 
+void  input_cleaner (void);
  

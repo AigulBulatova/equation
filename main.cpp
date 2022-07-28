@@ -11,6 +11,7 @@
 
 int main ()
 {
+    
 #ifdef TESTING
     test_run();
 #endif 
@@ -23,6 +24,5 @@ int main ()
     solve_quadratic(&equation);
     show_args(&equation);
 
-    return 0;
 }
  
