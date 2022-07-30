@@ -1,9 +1,9 @@
-
 #include <assert.h>
 #include "equation.h"
 #include "../general/general.h"
  
 //------------------------------------------------------------------
+
 void input_of_args(struct Equation* equation)
 {
     assert (equation != NULL);
@@ -11,15 +11,35 @@ void input_of_args(struct Equation* equation)
     printf("Please enter the coefficients a, b and c of the equation"
             " a * x^2 + b * x + c = 0 in the form \"a b c\"\n");
 
-    int input = 0;
-    while (input == 0) {
+    int input = ERROR;
+    while (input == ERROR) {
         if (scanf("%lf %lf %lf", &(equation->a), &(equation->b), &(equation->c)) != 3) {
             printf("Incorrect coefficient entry. Try again\n");
             input_cleaner();
         }
         else 
-            input = 1;
+            input = OK;
     }
+}
+
+//------------------------------------------------------------------
+
+int user_interface(void) {
+    int ans = NOT_STATED;
+
+    printf("Do you want to repeat?\n1.YES.\n2.NO.\n");
+
+    int input = ERROR;
+
+    while (input == ERROR) {
+        if(scanf("%d", &ans) != 1 || (ans != YES && ans != NO)) {
+            printf("Please, try again. Press 1 to repeat or 2 to stop.\n");
+            input_cleaner();
+        }
+        else 
+            input = OK;
+    }
+    return ans;
 }
 
 //------------------------------------------------------------------

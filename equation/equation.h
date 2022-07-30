@@ -13,6 +13,23 @@ enum roots_cases {
     INF_ROOTS = 3
 };
 
+///Enumeration type for user's answers
+///
+///@see user_interface()
+enum answers {
+    YES = 1,
+    NO = 2,
+    NOT_STATED = 0
+};
+
+///Enumeration type to detect input errors
+///
+///@see input_of_args(), user_interface()
+enum errors {
+    ERROR = 0, 
+    OK = 1
+};
+
 ///Structure for working with a quadratic equation
 ///
 ///Structure includes coefficients of equation, roots and amount of roots.
@@ -55,6 +72,12 @@ void solve_linear_case(struct Equation* equation);
 ///@param equation - pointer to a structure with coefficients, roots and amount of roots.
 ///@see struct Equation, input_cleaner()
 void input_of_args(struct Equation* equation);
+
+///Function for user interface
+///
+///This function sets the value of variable ans to YES or NO depending of user's answer.
+///@returns value of variable ans
+int user_interface(void);
 
 ///Function shows the results of solving the equation
 ///
