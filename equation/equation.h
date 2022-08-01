@@ -1,4 +1,5 @@
-#pragma once
+#ifndef EQUATION_H
+#define EQUATION_H
 
 #include <stdio.h>
 
@@ -22,24 +23,16 @@ enum answers {
     NOT_STATED = 0
 };
 
-///Enumeration type to detect input errors
-///
-///@see input_of_args(), user_interface()
-enum errors {
-    ERROR = 0, 
-    OK = 1
-};
-
 ///Structure for working with a quadratic equation
 ///
 ///Structure includes coefficients of equation, roots and amount of roots.
- struct Equation {
-        double a;
-        double b;
-        double c;
-        double x1;
-        double x2;
-        enum roots_cases num_of_roots;
+struct Equation {
+    double a;
+    double b;
+    double c;
+    double x1;
+    double x2;
+    enum roots_cases num_of_roots;
 }; 
 
 ///Function solves equation
@@ -47,14 +40,14 @@ enum errors {
 ///Function calls solve_quadratic_case or solve_linear_case.
 ///@param equation - pointer to a structure with coefficients, roots and amount of roots.
 ///@see struct Equation, solve_quadratic_case(), solve_linear_case().
-void solve_quadratic(struct Equation *equation);
+void solve_quadratic(Equation *equation);
 
 ///Function solves quadratic equation
 ///
 ///Function changes variables x1, x2 and num_of_roots .
 ///@param equation - pointer to a structure with coefficients, roots and amount of roots.
 ///@see struct Equation, solve_quadratic().
-void solve_quadratic_case(struct Equation *equation);
+void solve_quadratic_case(Equation *equation);
 
 
 ///Function solves linear equation
@@ -62,7 +55,7 @@ void solve_quadratic_case(struct Equation *equation);
 ///Function changes variables x1 and num_of_roots.
 ///@param equation - pointer to a structure with coefficients, roots and amount of roots.
 ///@see struct Equation, solve_case().
-void solve_linear_case(struct Equation* equation);
+void solve_linear_case(Equation* equation);
 
 
 ///Function read coefficients of equation
@@ -71,20 +64,20 @@ void solve_linear_case(struct Equation* equation);
 ///In case of input error function calls input_cleaner() and user can try again.
 ///@param equation - pointer to a structure with coefficients, roots and amount of roots.
 ///@see struct Equation, input_cleaner()
-void input_of_args(struct Equation* equation);
+void input_of_args(Equation* equation);
 
 ///Function for user interface
 ///
 ///This function sets the value of variable ans to YES or NO depending of user's answer.
 ///@returns value of variable ans
-int user_interface(void);
+int user_menu(void);
 
 ///Function shows the results of solving the equation
 ///
 ///Function prints the number of roots of the equation and their values if they exist.
 ///@param equation - pointer to a structure with coefficients, roots and amount of roots.
 ///@see struct Equation.
-void show_args(struct Equation* equation);
+void show_args(Equation* equation);
 
 
 ///Function initializes structure
@@ -92,5 +85,6 @@ void show_args(struct Equation* equation);
 ///Function initializes coefficients and roots of the equation at the start.
 ///@param equation - pointer to a structure with coefficients, roots and amount of roots.
 ///@see struct Equation.
-void struct_initial (struct Equation *equation);
+void equation_init(Equation *equation);
+#endif
 

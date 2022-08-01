@@ -4,47 +4,48 @@
  
 //------------------------------------------------------------------
 
-void input_of_args(struct Equation* equation)
+void input_of_args(Equation* equation)
 {
     assert (equation != NULL);
 
     printf("Please enter the coefficients a, b and c of the equation"
             " a * x^2 + b * x + c = 0 in the form \"a b c\"\n");
 
-    int input = ERROR;
-    while (input == ERROR) {
+    while (true) {
         if (scanf("%lf %lf %lf", &(equation->a), &(equation->b), &(equation->c)) != 3) {
             printf("Incorrect coefficient entry. Try again\n");
             input_cleaner();
         }
-        else 
-            input = OK;
+        else {
+            break;
+        }
     }
+
+    return;
 }
 
 //------------------------------------------------------------------
 
-int user_interface(void) {
-    int ans = NOT_STATED;
+int user_menu(void) {
+    int answer = NOT_STATED;
 
     printf("Do you want to repeat?\n1.YES.\n2.NO.\n");
 
-    int input = ERROR;
-
-    while (input == ERROR) {
-        if(scanf("%d", &ans) != 1 || (ans != YES && ans != NO)) {
+    while (true) {
+        if(scanf("%d", &answer) != 1 || (answer != YES && answer != NO)) {
             printf("Please, try again. Press 1 to repeat or 2 to stop.\n");
             input_cleaner();
         }
-        else 
-            input = OK;
+        else {
+            break;
+        }
     }
-    return ans;
+    return answer;
 }
 
 //------------------------------------------------------------------
 
-void show_args(struct Equation* equation)
+void show_args(Equation* equation)
 {
     assert (equation != NULL);
 
@@ -70,11 +71,13 @@ void show_args(struct Equation* equation)
             printf("Unexpected amount of roots.\n");
         }
     }
+
+    return;
 }
 
 //------------------------------------------------------------------
 
-void solve_linear_case(struct Equation* equation)
+void solve_linear_case(Equation* equation)
 {
     assert(equation != NULL);
 
@@ -94,11 +97,12 @@ void solve_linear_case(struct Equation* equation)
         equation->num_of_roots = ONE_ROOT;
     }
 
+    return;
 }
 
 //------------------------------------------------------------------
 
-void solve_quadratic_case(struct Equation *equation)
+void solve_quadratic_case(Equation *equation)
 {
     assert (equation != NULL);
 
@@ -121,24 +125,28 @@ void solve_quadratic_case(struct Equation *equation)
         equation->num_of_roots =  TWO_ROOTS;
     }
 
+    return;
 }
 
 //------------------------------------------------------------------
 
-void solve_quadratic(struct Equation *equation)
+void solve_quadratic(Equation *equation)
 {
     assert (equation != NULL);
 
-    if (isequal(equation->a, 0)) 
+    if (isequal(equation->a, 0)) {
         solve_linear_case(equation);
-    else 
+    }
+    else {
         solve_quadratic_case(equation);
+    }
 
+    return;
 }
 
 //------------------------------------------------------------------
 
-void struct_initial (struct Equation *equation)
+void equation_init (Equation *equation)
 {
     assert (equation != NULL);
 
@@ -148,6 +156,8 @@ void struct_initial (struct Equation *equation)
     equation->x1 = NAN;
     equation->x2 = NAN;
     equation->num_of_roots = NO_ROOTS;
+
+    return;
 }
 
 

@@ -1,4 +1,5 @@
-#pragma once
+#ifndef GENERAL_H
+#define GENERAL_H
 
 #include <stdio.h>
 #include <math.h>
@@ -22,4 +23,5 @@ static inline int isequal(double num1, double num2)
 ///
 ///This function used to clean the input that is not expected 
 void  input_cleaner (void);
+#endif
  

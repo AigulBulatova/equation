@@ -1,4 +1,5 @@
-#pragma once
+#ifndef TEST_H
+#define TEST_H
 
 #include <stdio.h>
 
@@ -17,7 +18,7 @@ void test_run(void);
 ///@param answers[] - array with correct answers for each equation from test[].
 ///@param size - number of equations to check.
 ///@see struct Equation, test_run(), test_show(), root_cases_print(). 
-int test_solve (struct Equation test[], const struct Equation answers[], int size);
+int test_solve (struct Equation test[], const Equation answers[], int size);
 
 ///Function shows test results
 ///
@@ -41,3 +42,4 @@ void root_cases_print(int root_case);
 ///@param x_answers - second double value to compare
 ///@returns 1 if x_test and x_answers are equal and 0 if they aren't
 int root_compare(double x_test, double x_answers);
+#endif

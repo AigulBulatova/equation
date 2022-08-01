@@ -8,7 +8,7 @@
 void test_run(void)
 {
 
-    struct Equation  test[] = {
+    Equation  test[] = {
     {.a = 0, .b = 0, .c = 0,  .x1 = NAN, .x2 = NAN, .num_of_roots = NO_ROOTS},
     {.a = 1, .b = 2, .c = 1,  .x1 = NAN, .x2 = NAN, .num_of_roots = NO_ROOTS},
     {.a = 1, .b = 3, .c = -4, .x1 = NAN, .x2 = NAN, .num_of_roots = NO_ROOTS},
@@ -18,7 +18,7 @@ void test_run(void)
     {.a = 0, .b = 5, .c = 0,  .x1 = NAN, .x2 = NAN, .num_of_roots = NO_ROOTS}
     };
 
-    struct Equation  answers[] = {
+    Equation  answers[] = {
     {.x1 = NAN, .x2 = NAN, .num_of_roots = INF_ROOTS},
     {.x1 = -1,  .x2 = NAN, .num_of_roots = ONE_ROOT},
     {.x1 = 1,  .x2 = -4,   .num_of_roots = TWO_ROOTS},
@@ -32,11 +32,11 @@ void test_run(void)
     int failed_tests = test_solve(test, answers, sizeof (test) / sizeof (test[0]));
     test_show(failed_tests);
 
-}
+} 
 
 //------------------------------------------------------------------
 
-int test_solve (struct Equation test[], const struct Equation answers[], int size)
+int test_solve (Equation test[], const Equation answers[], int size)
 {
     int failed_test = 0;
     int num_of_test;

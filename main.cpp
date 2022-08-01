@@ -7,8 +7,6 @@
 #include "test/test.h"
 #endif 
 
-
-
 int main ()
 {
     
@@ -16,18 +14,19 @@ int main ()
     test_run();
 #endif 
 
-    struct Equation equation;
-    struct_initial(&equation);
+    Equation equation = {};
+    equation_init(&equation);
 
-    int ans = YES;
-    while (ans == YES) {
+    int answer = YES;
+    while (answer == YES) {
         input_of_args(&equation);
 
         solve_quadratic(&equation);
         show_args(&equation);
 
-        ans = user_interface();
+        answer = user_menu();
     }
 
+    return 0;
 }
  
