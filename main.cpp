@@ -11,7 +11,11 @@ int main ()
 {
     
 #ifdef TESTING
-    test_run();
+    int test_return = test_run();
+    
+    if(test_return) {
+        return test_return;
+    }
 #endif 
 
     Equation equation = {};
@@ -21,7 +25,12 @@ int main ()
     while (answer == YES) {
         input_of_args(&equation);
 
-        solve_quadratic(&equation);
+        int solve_ret = solve_quadratic(&equation);
+
+        if (solve_ret) {
+            return solve_ret;
+        }  
+
         show_args(&equation);
 
         answer = user_menu();

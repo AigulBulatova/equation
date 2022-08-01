@@ -29,7 +29,7 @@ void input_of_args(Equation* equation)
 int user_menu(void) {
     int answer = NOT_STATED;
 
-    printf("Do you want to repeat?\n1.YES.\n2.NO.\n");
+    printf("\nDo you want to repeat?\n1.YES.\n2.NO.\n");
 
     while (true) {
         if(scanf("%d", &answer) != 1 || (answer != YES && answer != NO)) {
@@ -77,7 +77,7 @@ void show_args(Equation* equation)
 
 //------------------------------------------------------------------
 
-void solve_linear_case(Equation* equation)
+int solve_linear_case(Equation* equation)
 {
     assert(equation != NULL);
 
@@ -97,12 +97,12 @@ void solve_linear_case(Equation* equation)
         equation->num_of_roots = ONE_ROOT;
     }
 
-    return;
+    return 0;
 }
 
 //------------------------------------------------------------------
 
-void solve_quadratic_case(Equation *equation)
+int solve_quadratic_case(Equation *equation)
 {
     assert (equation != NULL);
 
@@ -125,23 +125,23 @@ void solve_quadratic_case(Equation *equation)
         equation->num_of_roots =  TWO_ROOTS;
     }
 
-    return;
+    return 0;
 }
 
 //------------------------------------------------------------------
 
-void solve_quadratic(Equation *equation)
+int solve_quadratic(Equation *equation)
 {
     assert (equation != NULL);
 
     if (isequal(equation->a, 0)) {
-        solve_linear_case(equation);
+        return solve_linear_case(equation);
     }
     else {
-        solve_quadratic_case(equation);
+        return solve_quadratic_case(equation);
     }
 
-    return;
+    return 0;
 }
 
 //------------------------------------------------------------------

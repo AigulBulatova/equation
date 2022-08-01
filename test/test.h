@@ -7,7 +7,7 @@
 ///
 ///This function runs test_solve() and test_show().
 ///@see struct Equation, test_solve(), test_show().
-void test_run(void);
+int test_run(void);
 
 ///Testing function
 ///
@@ -26,7 +26,7 @@ int test_solve (struct Equation test[], const Equation answers[], int size);
 ///that all tests passed successfully.
 ///@param failed_test - amount of failed tests.
 ///@see test_run().
-void test_show (int failed_test);
+int test_show (int failed_test);
 
 ///Printing the number of roots
 ///

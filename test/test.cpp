@@ -5,7 +5,7 @@
 
 //-----------------------------------------------------------------
 
-void test_run(void)
+int test_run(void)
 {
 
     Equation  test[] = {
@@ -30,7 +30,13 @@ void test_run(void)
 
 
     int failed_tests = test_solve(test, answers, sizeof (test) / sizeof (test[0]));
-    test_show(failed_tests);
+
+    int show_return = test_show(failed_tests);
+    if (show_return) {
+        return show_return;
+    }
+    
+    return 0;
 
 } 
 
@@ -77,7 +83,7 @@ int test_solve (Equation test[], const Equation answers[], int size)
 
 //------------------------------------------------------------------
 
-void test_show (int failed_test) 
+int test_show (int failed_test) 
 {
     if (failed_test == 0) {
         printf("All tests complete succesfully.\n");
@@ -86,6 +92,7 @@ void test_show (int failed_test)
         printf("Tests failed: %d\n", failed_test);
         exit(0);
     }
+    return 0;
 }
 
 //------------------------------------------------------------------

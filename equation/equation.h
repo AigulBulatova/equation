@@ -40,14 +40,14 @@ struct Equation {
 ///Function calls solve_quadratic_case or solve_linear_case.
 ///@param equation - pointer to a structure with coefficients, roots and amount of roots.
 ///@see struct Equation, solve_quadratic_case(), solve_linear_case().
-void solve_quadratic(Equation *equation);
+int solve_quadratic(Equation *equation);
 
 ///Function solves quadratic equation
 ///
 ///Function changes variables x1, x2 and num_of_roots .
 ///@param equation - pointer to a structure with coefficients, roots and amount of roots.
 ///@see struct Equation, solve_quadratic().
-void solve_quadratic_case(Equation *equation);
+int solve_quadratic_case(Equation *equation);
 
 
 ///Function solves linear equation
@@ -55,7 +55,7 @@ void solve_quadratic_case(Equation *equation);
 ///Function changes variables x1 and num_of_roots.
 ///@param equation - pointer to a structure with coefficients, roots and amount of roots.
 ///@see struct Equation, solve_case().
-void solve_linear_case(Equation* equation);
+int solve_linear_case(Equation* equation);
 
 
 ///Function read coefficients of equation
