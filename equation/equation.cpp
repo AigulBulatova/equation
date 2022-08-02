@@ -1,18 +1,21 @@
 #include <assert.h>
 #include "equation.h"
 #include "../general/general.h"
+#include "../equation_conf.h" 
  
 //------------------------------------------------------------------
 
 void input_of_args(Equation* equation)
 {
-    assert (equation != NULL);
+    assert (equation);
 
     printf("Please enter the coefficients a, b and c of the equation"
             " a * x^2 + b * x + c = 0 in the form \"a b c\"\n");
 
     while (true) {
-        if (scanf("%lf %lf %lf", &(equation->a), &(equation->b), &(equation->c)) != 3) {
+        if (scanf(" %lf %lf %lf", &(equation->a), 
+                                  &(equation->b), 
+                                  &(equation->c)) != 3) {
             printf("Incorrect coefficient entry. Try again\n");
             input_cleaner();
         }
@@ -21,18 +24,23 @@ void input_of_args(Equation* equation)
         }
     }
 
+#ifdef DEBUG
+    printf("Coefficients of equation: a = %.2lf, b = %.2lf, c = %.2lf\n", equation->a, equation->b, equation->c);
+#endif
+
     return;
 }
 
 //------------------------------------------------------------------
 
-int user_menu(void) {
+int user_menu(void) 
+{
     int answer = NOT_STATED;
 
     printf("\nDo you want to repeat?\n1.YES.\n2.NO.\n");
 
     while (true) {
-        if(scanf("%d", &answer) != 1 || (answer != YES && answer != NO)) {
+        if(scanf("%d", &answer) != 1 || (answer != CONTINUE_SOLVING && answer != STOP)) {
             printf("Please, try again. Press 1 to repeat or 2 to stop.\n");
             input_cleaner();
         }
@@ -40,14 +48,19 @@ int user_menu(void) {
             break;
         }
     }
+
+#ifdef DEBUG
+    printf("answer = %d\n", answer);
+#endif
+
     return answer;
 }
 
 //------------------------------------------------------------------
 
-void show_args(Equation* equation)
+int show_results(Equation* equation)
 {
-    assert (equation != NULL);
+    assert (equation);
 
     switch(equation->num_of_roots) {
         case NO_ROOTS: {
@@ -72,14 +85,14 @@ void show_args(Equation* equation)
         }
     }
 
-    return;
+    return 0;
 }
 
 //------------------------------------------------------------------
 
 int solve_linear_case(Equation* equation)
 {
-    assert(equation != NULL);
+    assert(equation);
 
     double b = equation->b;
     double c = equation->c;
@@ -104,13 +117,17 @@ int solve_linear_case(Equation* equation)
 
 int solve_quadratic_case(Equation *equation)
 {
-    assert (equation != NULL);
+    assert (equation);
 
     double a = equation->a;
     double b = equation->b;
     double c = equation->c;
 
     double discr = b * b - 4 * a * c;
+
+#ifdef DEBUG
+    printf("Discriminant = %.2lf\n", discr );
+#endif
 
     if (isequal(discr, 0)) {
         equation->x1 = - b / (2 * a);
@@ -120,8 +137,11 @@ int solve_quadratic_case(Equation *equation)
         equation->num_of_roots =  NO_ROOTS;
     }
     else  {
-        equation->x1 = ( - b + sqrt(discr)) / (2 * a);
-        equation->x2 = ( - b - sqrt(discr)) / (2 * a);
+        a *= 2;
+        double discr_sqrt = sqrt(discr);
+
+        equation->x1 = ( - b + discr_sqrt) / a;
+        equation->x2 = ( - b - discr_sqrt) / a;
         equation->num_of_roots =  TWO_ROOTS;
     }
 
@@ -132,7 +152,7 @@ int solve_quadratic_case(Equation *equation)
 
 int solve_quadratic(Equation *equation)
 {
-    assert (equation != NULL);
+    assert (equation);
 
     if (isequal(equation->a, 0)) {
         return solve_linear_case(equation);
@@ -146,13 +166,13 @@ int solve_quadratic(Equation *equation)
 
 //------------------------------------------------------------------
 
-void equation_init (Equation *equation)
+void equation_init(Equation *equation)
 {
-    assert (equation != NULL);
+    assert (equation);
 
-    equation->a = NAN;
-    equation->b = NAN;
-    equation->c = NAN;
+    equation->a  = NAN;
+    equation->b  = NAN;
+    equation->c  = NAN;
     equation->x1 = NAN;
     equation->x2 = NAN;
     equation->num_of_roots = NO_ROOTS;

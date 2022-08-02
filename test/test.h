@@ -1,7 +1,16 @@
 #ifndef TEST_H
 #define TEST_H
 
-#include <stdio.h>
+#include <stdio.h> 
+///Structure for testing program
+///
+///This structure includes roots of equation and their amount 
+///@see test_run(), test_solve()
+struct Answers {
+    double x1;
+    double x2;
+    int num_of_roots;
+};
 
 ///Function starts testing
 ///
@@ -18,7 +27,7 @@ int test_run(void);
 ///@param answers[] - array with correct answers for each equation from test[].
 ///@param size - number of equations to check.
 ///@see struct Equation, test_run(), test_show(), root_cases_print(). 
-int test_solve (struct Equation test[], const Equation answers[], int size);
+int test_solve(struct Equation test[], const Answers answers[], int size);
 
 ///Function shows test results
 ///
@@ -26,7 +35,7 @@ int test_solve (struct Equation test[], const Equation answers[], int size);
 ///that all tests passed successfully.
 ///@param failed_test - amount of failed tests.
 ///@see test_run().
-int test_show (int failed_test);
+int test_show(int failed_test);
 
 ///Printing the number of roots
 ///
@@ -41,5 +50,5 @@ void root_cases_print(int root_case);
 ///@param x_test - first double value to compare
 ///@param x_answers - second double value to compare
 ///@returns 1 if x_test and x_answers are equal and 0 if they aren't
-int root_compare(double x_test, double x_answers);
+int root_compare(double root_test, double root_answers);
 #endif

@@ -1,6 +1,6 @@
 #ifndef EQUATION_H
 #define EQUATION_H
-
+ 
 #include <stdio.h>
 
 ///Enumeration type for possible cases of the number of roots
@@ -16,10 +16,10 @@ enum roots_cases {
 
 ///Enumeration type for user's answers
 ///
-///@see user_interface()
+///@see user_menu()
 enum answers {
-    YES = 1,
-    NO = 2,
+    CONTINUE_SOLVING = 1,
+    STOP = 2,
     NOT_STATED = 0
 };
 
@@ -77,7 +77,7 @@ int user_menu(void);
 ///Function prints the number of roots of the equation and their values if they exist.
 ///@param equation - pointer to a structure with coefficients, roots and amount of roots.
 ///@see struct Equation.
-void show_args(Equation* equation);
+int show_results(Equation* equation);
 
 
 ///Function initializes structure

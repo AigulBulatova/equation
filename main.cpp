@@ -1,15 +1,14 @@
 #include <stdio.h>
 #include <math.h>
 #include "equation/equation.h"
+#include "equation_conf.h"
 
-#define TESTING
 #ifdef TESTING
 #include "test/test.h"
 #endif 
 
-int main ()
+int main () 
 {
-    
 #ifdef TESTING
     int test_return = test_run();
     
@@ -21,17 +20,19 @@ int main ()
     Equation equation = {};
     equation_init(&equation);
 
-    int answer = YES;
-    while (answer == YES) {
+    int answer = CONTINUE_SOLVING;
+    while (answer == CONTINUE_SOLVING) {
         input_of_args(&equation);
 
         int solve_ret = solve_quadratic(&equation);
-
         if (solve_ret) {
             return solve_ret;
         }  
 
-        show_args(&equation);
+        int show_ret = show_results(&equation);
+        if(show_ret) {
+            return show_ret;
+        }
 
         answer = user_menu();
     }

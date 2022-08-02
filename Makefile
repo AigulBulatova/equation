@@ -37,7 +37,7 @@ FLAGS = -lubsan -D NDEBUG -g -std=c++14 -fmax-errors=1 			  	\
 all: global
 
 global: $(OBJ)
-	gcc $(OBJ) -o obj/equation -lm $(FLAGS)
+	gcc $(OBJ) -o equat -lm $(FLAGS)
 
 obj/main.o: main.cpp equation/equation.h test/test.h
 	gcc main.cpp -c -o obj/main.o	$(FLAGS)
@@ -55,4 +55,4 @@ obj/test.o: test/test.cpp test/test.h equation/equation.h
 .PHONY: cleanup
 
 cleanup:
-	rm -rm *.0 equation
+	rm *.0 equation

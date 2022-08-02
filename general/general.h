@@ -4,7 +4,7 @@
 #include <stdio.h>
 #include <math.h>
 
-///A constant used to compare two double values
+///A constant used to compare two double values 
 ///
 ///@see isequal()
 #define EPS 1e-6 
@@ -22,6 +22,6 @@ static inline int isequal(double num1, double num2)
 ///Function cleans input
 ///
 ///This function used to clean the input that is not expected 
-void  input_cleaner (void);
+void  input_cleaner(void);
 #endif
  
