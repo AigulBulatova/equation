@@ -21,7 +21,7 @@ static inline int isequal(double num1, double num2)
 
 ///Function cleans input
 ///
-///This function used to clean the input that is not expected 
+///This function used to clear the input buffer to a '\n' symbol
 void  input_cleaner(void);
 #endif
  

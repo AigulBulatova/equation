@@ -1,5 +1,5 @@
 # Equation solver
-This program can solve quadratic equations of the form ```a^2 * x + b * x + c = 0```
+This program can solve quadratic equations of the form ```a * x^2 + b * x + c = 0```
 
 # Installation
 If you want to install this program:
@@ -20,9 +20,11 @@ If you want to install this program:
 ## Testing and debugging
 This project includes testing that checks if the program works correctly and shows the test results to the user.
 
-If you want to turn off the testing, go to ```equation_conf.h``` and delete or comment out ```#define TESTING```
+If you want to turn on the testing, go to ```equation_conf.h``` and  define TESTING by uncomment  ```//s#define TESTING```
 ___
-If you want to disable debugging of the program, delete or comment out #define ```DEBUG``` in  ```equation_conf.h```
+The project also includes debugging that displays basic calculations and entered data to the user
+
+If you want to disable debugging of the program,  delete or comment out ```#define DEBUG``` in  ```equation_conf.h```
 
 ```
 //#define TESTING

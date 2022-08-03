@@ -42,7 +42,7 @@ int test_show(int failed_test);
 ///This function prints the name of enum root_cases instead of its value.
 ///@param root_case defines a number of roots.
 ///@see test_solve().
-void root_cases_print(int root_case);
+int root_cases_print(int root_case);
 
 ///Function compares two double values
 ///

@@ -25,7 +25,9 @@ void input_of_args(Equation* equation)
     }
 
 #ifdef DEBUG
-    printf("Coefficients of equation: a = %.2lf, b = %.2lf, c = %.2lf\n", equation->a, equation->b, equation->c);
+    printf("Coefficients of equation: a = %.2lf, b = %.2lf, c = %.2lf\n", equation->a,
+                                                                          equation->b,
+                                                                          equation->c);
 #endif
 
     return;
@@ -40,7 +42,7 @@ int user_menu(void)
     printf("\nDo you want to repeat?\n1.YES.\n2.NO.\n");
 
     while (true) {
-        if(scanf("%d", &answer) != 1 || (answer != CONTINUE_SOLVING && answer != STOP)) {
+        if (scanf("%d", &answer) != 1 || (answer != CONTINUE_SOLVING && answer != STOP)) {
             printf("Please, try again. Press 1 to repeat or 2 to stop.\n");
             input_cleaner();
         }
@@ -62,7 +64,7 @@ int show_results(Equation* equation)
 {
     assert (equation);
 
-    switch(equation->num_of_roots) {
+    switch (equation->num_of_roots) {
         case NO_ROOTS: {
             printf("The equation has no roots.\n");
             break;

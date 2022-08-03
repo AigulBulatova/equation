@@ -12,7 +12,7 @@ int main ()
 #ifdef TESTING
     int test_return = test_run();
     
-    if(test_return) {
+    if (test_return) {
         return test_return;
     }
 #endif 
@@ -30,7 +30,7 @@ int main ()
         }  
 
         int show_ret = show_results(&equation);
-        if(show_ret) {
+        if (show_ret) {
             return show_ret;
         }
 
