@@ -1,5 +1,5 @@
 # Equation solver
-This program can solve quadratic equations of the form ```a^2 * x + b * x + c = 0```
+This program can solve quadratic equations of the form ```a * x^2 + b * x + c = 0```
 
 # Installation
 If you want to install this program:
