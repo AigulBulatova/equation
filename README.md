@@ -22,9 +22,13 @@ This project includes testing that checks if the program works correctly and sho
 
 If you want to turn on the testing, go to ```equation_conf.h``` and  define TESTING by uncomment  ```//s#define TESTING```
 ___
+<<<<<<< HEAD
 The project also includes debugging that displays basic calculations and entered data to the user
 
 If you want to disable debugging of the program,  delete or comment out ```#define DEBUG``` in  ```equation_conf.h```
+=======
+If you want to disable debugging of the program, delete or comment out ```#define DEBUG``` in  ```equation_conf.h```
+>>>>>>> 2939d8f1a1bdc5f725159b34dc8123d607ea395b
 
 ```
 //#define TESTING
