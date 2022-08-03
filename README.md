@@ -22,7 +22,7 @@ This project includes testing that checks if the program works correctly and sho
 
 If you want to turn off the testing, go to ```equation_conf.h``` and delete or comment out ```#define TESTING```
 ___
-If you want to disable debugging of the program, delete or comment out #define ```DEBUG``` in  ```equation_conf.h```
+If you want to disable debugging of the program, delete or comment out ```#define DEBUG``` in  ```equation_conf.h```
 
 ```
 //#define TESTING
