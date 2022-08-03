@@ -4,9 +4,9 @@
 ///Below you can see short descriptions for configurations
 
 ///Enables testing the program
-#define TESTING
+//#define TESTING
 
 ///Enables debugging the program
-#define DEBUG 
+//#define DEBUG 
 
 #endif
