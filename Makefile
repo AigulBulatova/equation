@@ -37,22 +37,21 @@ FLAGS = -lubsan -D NDEBUG -g -std=c++14 -fmax-errors=1 			  	\
 all: global
 
 global: $(OBJ)
-	gcc $(OBJ) -o solve -lm $(FLAGS)
+	g++ $(OBJ) -o solve -lm $(FLAGS)
 
-obj/main.o: main.cpp equation/equation.h test/test.h
-	gcc main.cpp -c -o obj/main.o	$(FLAGS)
+obj/main.o: main.cpp equation_conf.h equation/equation.h test/test.h
+	g++ main.cpp -c -o obj/main.o	$(FLAGS)
 
-obj/equation.o: equation/equation.cpp equation/equation.h general/general.h
-	gcc equation/equation.cpp -c -o obj/equation.o $(FLAGS)
+obj/equation.o: equation/equation.cpp equation_conf.h equation/equation.h general/general.h
+	g++ equation/equation.cpp -c -o obj/equation.o $(FLAGS)
 
 obj/general.o: general/general.cpp general/general.h
-	gcc general/general.cpp -c -o obj/general.o $(FLAGS)
+	g++ general/general.cpp -c -o obj/general.o $(FLAGS)
 
-obj/test.o: test/test.cpp test/test.h equation/equation.h 
-	gcc test/test.cpp -c -o obj/test.o $(FLAGS)
-
+obj/test.o: test/test.cpp equation_conf.h test/test.h equation/equation.h 
+	g++ test/test.cpp -c -o obj/test.o $(FLAGS)
 
 .PHONY: cleanup
 
 cleanup:
-	rm *.0 equation
+	rm *.0 solve

@@ -1,7 +1,8 @@
 #include <math.h>
 #include "test.h"
 #include "../equation/equation.h"
-#include "../general/general.h" 
+#include "../general/general.h"
+#include "../equation_conf.h" 
 
 //-----------------------------------------------------------------
 
@@ -43,10 +44,16 @@ int test_run(void)
 int test_solve(Equation test[], const Answers answers[], int size)
 {
     int failed_tests = 0;
-    int num_of_test = 0;
     
-    for (num_of_test; num_of_test < size; num_of_test++) {
+    for (int num_of_test = 0; num_of_test < size; num_of_test++) {
+
+        #ifdef DEBUG
+            if (!isequal(test[num_of_test].a, 0)) {
+                printf("Test number %d: ", num_of_test);
+            }
+        #endif
         solve_quadratic(&test[num_of_test]);
+
 
         int x1_comp = !root_compare(test[num_of_test].x1, answers[num_of_test].x1);
         int x2_comp = !root_compare(test[num_of_test].x2, answers[num_of_test].x2);

@@ -20,6 +20,7 @@ void input_of_args(Equation* equation)
             input_cleaner();
         }
         else {
+            input_cleaner();
             break;
         }
     }
@@ -47,6 +48,7 @@ int user_menu(void)
             input_cleaner();
         }
         else {
+            input_cleaner();
             break;
         }
     }
@@ -109,6 +111,8 @@ int solve_linear_case(Equation* equation)
     }
     else {
         equation->x1 = - c / b;
+        equation->x1 = zero_abs(equation->x1);
+        
         equation->num_of_roots = ONE_ROOT;
     }
 

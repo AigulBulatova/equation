@@ -23,5 +23,11 @@ static inline int isequal(double num1, double num2)
 ///
 ///This function used to clear the input buffer to a '\n' symbol
 void  input_cleaner(void);
+
+///Function turns "-0" to "0"
+///
+///@param value - floating point number
+///@returns 0 if value -s equal to 0 or value if it does not
+double zero_abs(double value);
 #endif
  

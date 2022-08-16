@@ -35,6 +35,7 @@ int main ()
         }
 
         answer = user_menu();
+        printf("\n");
     }
 
     return 0;
