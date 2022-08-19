@@ -1,7 +1,7 @@
 #include <assert.h>
 #include "equation.h"
 #include "../general/general.h"
-#include "../equation_conf.h" 
+#include "../configs/equation_conf.h" 
  
 //------------------------------------------------------------------
 

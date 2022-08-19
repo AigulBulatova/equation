@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <math.h>
 #include "equation/equation.h"
-#include "equation_conf.h"
+#include "configs/equation_conf.h"
 
 #ifdef TESTING
 #include "test/test.h"

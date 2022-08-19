@@ -1,7 +1,8 @@
 OBJ   = obj/main.o      \
 		obj/general.o   \
 		obj/equation.o  \
-		obj/test.o    
+		obj/test.o   	\
+		obj/colored.o 
 
 FLAGS = -lubsan -D NDEBUG -g -std=c++14 -fmax-errors=1 			  	\
 		-Wc++0x-compat -Wc++11-compat -Wc++14-compat  				\
@@ -39,16 +40,19 @@ all: global
 global: $(OBJ)
 	g++ $(OBJ) -o solve -lm $(FLAGS)
 
-obj/main.o: main.cpp equation_conf.h equation/equation.h test/test.h
+obj/main.o: main.cpp configs/equation_conf.h equation/equation.h test/test.h
 	g++ main.cpp -c -o obj/main.o	$(FLAGS)
 
-obj/equation.o: equation/equation.cpp equation_conf.h equation/equation.h general/general.h
+obj/equation.o: equation/equation.cpp configs/equation_conf.h equation/equation.h general/general.h
 	g++ equation/equation.cpp -c -o obj/equation.o $(FLAGS)
 
 obj/general.o: general/general.cpp general/general.h
 	g++ general/general.cpp -c -o obj/general.o $(FLAGS)
 
-obj/test.o: test/test.cpp equation_conf.h test/test.h equation/equation.h 
+obj/colored.o: colored_output/colored_output.cpp colored_output/colored_output.h
+	g++ colored_output/colored_output.cpp -c -o obj/colored.o $(FLAGS)
+
+obj/test.o: test/test.cpp configs/equation_conf.h test/test.h equation/equation.h colored_output/colored_output.h
 	g++ test/test.cpp -c -o obj/test.o $(FLAGS)
 
 .PHONY: cleanup

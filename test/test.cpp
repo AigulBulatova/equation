@@ -2,7 +2,8 @@
 #include "test.h"
 #include "../equation/equation.h"
 #include "../general/general.h"
-#include "../equation_conf.h" 
+#include "../configs/equation_conf.h" 
+#include "../colored_output/colored_output.h"
 
 //-----------------------------------------------------------------
 
@@ -61,7 +62,7 @@ int test_solve(Equation test[], const Answers answers[], int size)
 
         if (x1_comp || x2_comp || nroots_comp) {
             failed_tests++;
-            printf("Test number %d failed.\n", num_of_test + 1);
+            colored_print(RED, "Test number %d failed.\n", num_of_test + 1);
             }
         
         if (x1_comp) {
@@ -98,10 +99,10 @@ int test_solve(Equation test[], const Answers answers[], int size)
 int test_show(int failed_tests) 
 {
     if (failed_tests == 0) {
-        printf("All tests complete succesfully.\n");
+        colored_print(GREEN, "All tests passed successfully.\n");
     }
     else {
-        printf("Tests failed: %d\n", failed_tests);
+        colored_print(RED, "Tests failed: %d\n", failed_tests);
         exit(0);
     }
 
