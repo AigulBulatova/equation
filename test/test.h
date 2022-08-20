@@ -2,6 +2,9 @@
 #define TEST_H
 
 #include <stdio.h> 
+
+///@file test.h contains structures and function declarations for testing the program
+
 ///Structure for testing program
 ///
 ///This structure includes roots of equation and their amount 

@@ -1,7 +1,9 @@
 #ifndef EQUATION_H
 #define EQUATION_H
- 
+
 #include <stdio.h>
+
+///@file equation.h contains function declarations, enumeration types and structures for solving the equation
 
 ///Enumeration type for possible cases of the number of roots
 ///

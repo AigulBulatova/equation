@@ -69,25 +69,29 @@ $(function() {
 <div class="title">general.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef GENERAL_H</span></div>
+<a href="general_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef GENERAL_H</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define GENERAL_H</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;math.h&gt;</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#define EPS 1e-6 </span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">static</span> <span class="keyword">inline</span> <span class="keywordtype">int</span> isequal(<span class="keywordtype">double</span> num1, <span class="keywordtype">double</span> num2)</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;{</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keywordflow">return</span> (fabs(num1 - num2) &lt;= EPS);</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;} </div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keywordtype">void</span>  input_cleaner(<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keywordtype">double</span> zero_abs(<span class="keywordtype">double</span> value);</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor"> </span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
+<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="general_8h.html#a6ebf6899d6c1c8b7b9d09be872c05aae">   12</a></span>&#160;<span class="preprocessor">#define EPS 1e-6 </span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">static</span> <span class="keyword">inline</span> <span class="keywordtype">int</span> isequal(<span class="keywordtype">double</span> num1, <span class="keywordtype">double</span> num2)</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;{</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keywordflow">return</span> (fabs(num1 - num2) &lt;= <a class="code" href="general_8h.html#a6ebf6899d6c1c8b7b9d09be872c05aae">EPS</a>);</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;} </div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keywordtype">void</span>  <a class="code" href="general_8h.html#a39122bdf0a37c5e9d72bff334f98f67b">input_cleaner</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keywordtype">double</span> <a class="code" href="general_8h.html#adcc35116f1a86ed9b64a1a985e9f7709">zero_abs</a>(<span class="keywordtype">double</span> value);</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor"> </span></div>
 </div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="ageneral_8h_html_a6ebf6899d6c1c8b7b9d09be872c05aae"><div class="ttname"><a href="general_8h.html#a6ebf6899d6c1c8b7b9d09be872c05aae">EPS</a></div><div class="ttdeci">#define EPS</div><div class="ttdef"><b>Definition:</b> general.h:12</div></div>
+<div class="ttc" id="ageneral_8h_html_adcc35116f1a86ed9b64a1a985e9f7709"><div class="ttname"><a href="general_8h.html#adcc35116f1a86ed9b64a1a985e9f7709">zero_abs</a></div><div class="ttdeci">double zero_abs(double value)</div><div class="ttdef"><b>Definition:</b> general.cpp:10</div></div>
+<div class="ttc" id="ageneral_8h_html_a39122bdf0a37c5e9d72bff334f98f67b"><div class="ttname"><a href="general_8h.html#a39122bdf0a37c5e9d72bff334f98f67b">input_cleaner</a></div><div class="ttdeci">void input_cleaner(void)</div><div class="ttdef"><b>Definition:</b> general.cpp:3</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

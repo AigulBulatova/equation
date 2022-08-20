@@ -20,17 +20,16 @@ If you want to install this program:
 ## Testing and debugging
 This project includes testing that checks if the program works correctly and shows the test results to the user.
 
-If you want to turn on the testing, go to [equation_conf.h](equation_conf.h) and  define TESTING by uncomment  ```//#define TESTING```
+If you want to turn on the testing, go to [equation_conf.h](configs/equation_configs.h) and  define TESTING by uncomment  ```//#define TESTING```
 ___
 
 The project also includes debugging that displays basic calculations and entered data to the user
 
-If you want to turn on debugging of the program, uncomment ```//#define DEBUG``` in  [equation_conf.h](equation_conf.h)
+If you want to turn on debugging of the program, uncomment ```//#define DEBUG``` in  [equation_conf.h](configs/equation_configs.h)
 
 ```
 //#define TESTING
 
 //#define DEBUG 
 ```
-# Contacts
-[Link to VK profile](https://vk.com/id350031553)
+

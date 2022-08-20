@@ -4,6 +4,8 @@
 #include <stdio.h>
 #include <math.h>
 
+///@file general.h contains function declarations for isequal, input_cleaner and zero_abs
+
 ///A constant used to compare two double values 
 ///
 ///@see isequal()
