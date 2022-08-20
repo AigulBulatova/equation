@@ -20,12 +20,12 @@ If you want to install this program:
 ## Testing and debugging
 This project includes testing that checks if the program works correctly and shows the test results to the user.
 
-If you want to turn on the testing, go to [equation_conf.h](/AigulBulatova/equation/tree/master/configs) and  define TESTING by uncomment  ```//#define TESTING```
+If you want to turn on the testing, go to [equation_conf.h](/AigulBulatova/equation/configs/equation_conf.h) and  define TESTING by uncomment  ```//#define TESTING```
 ___
 
 The project also includes debugging that displays basic calculations and entered data to the user
 
-If you want to turn on debugging of the program, uncomment ```//#define DEBUG``` in  [equation_conf.h](/AigulBulatova/equation/tree/master/configs)
+If you want to turn on debugging of the program, uncomment ```//#define DEBUG``` in  [equation_conf.h](/AigulBulatova/equation/configs/equation_conf.h)
 
 ```
 //#define TESTING
