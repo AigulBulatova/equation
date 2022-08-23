@@ -10,8 +10,8 @@
 ///0 stands for NO_ROOTS, 1 for ONE_ROOT, 2 for TWO_ROOTS and 3 for_INF_ROOTS
 ///@see num_of_roots
 enum roots_cases {
-    NO_ROOTS = 0,
-    ONE_ROOT = 1,
+    NO_ROOTS  = 0,
+    ONE_ROOT  = 1,
     TWO_ROOTS = 2,
     INF_ROOTS = 3
 };
@@ -51,14 +51,12 @@ int solve_quadratic(Equation *equation);
 ///@see struct Equation, solve_quadratic().
 int solve_quadratic_case(Equation *equation);
 
-
 ///Function solves linear equation
 ///
 ///Function changes variables x1 and num_of_roots.
 ///@param equation - pointer to a structure with coefficients, roots and amount of roots.
 ///@see struct Equation, solve_case().
 int solve_linear_case(Equation* equation);
-
 
 ///Function read coefficients of equation
 ///
@@ -80,7 +78,6 @@ int user_menu(void);
 ///@param equation - pointer to a structure with coefficients, roots and amount of roots.
 ///@see struct Equation.
 int show_results(Equation* equation);
-
 
 ///Function initializes structure
 ///

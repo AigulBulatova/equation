@@ -9,7 +9,5 @@ void  input_cleaner(void)
 
 double zero_abs(double value)
 {
-    return (isequal(value, 0)) ? fabs(value) : value;
+    return (isequal(value, 0)) ? 0 : value;
 }
-
-//------------------------------------------------------------------

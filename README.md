@@ -32,4 +32,10 @@ If you want to turn on debugging of the program, uncomment ```//#define DEBUG```
 
 //#define DEBUG 
 ```
+## Documentation
+If you want to create documentation for this project:
+* make sure that the ```doxygen``` installed
+* generate documentation:
+    * ```doxygen Doxyfile```
+* documentation will be at html files
 
