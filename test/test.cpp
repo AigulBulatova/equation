@@ -49,32 +49,32 @@ int test_solve(Equation test[], const Answers answers[], int size)
 
         #ifdef DEBUG
             if (!isequal(test[num_of_test].a, 0)) {
-                printf("Test number %d: ", num_of_test);
+                printf("Test number %d: ", num_of_test + 1);
             }
         #endif
         solve_quadratic(&test[num_of_test]);
 
 
-        int x1_comp = !root_compare(test[num_of_test].x1, answers[num_of_test].x1);
-        int x2_comp = !root_compare(test[num_of_test].x2, answers[num_of_test].x2);
-        int nroots_comp = answers[num_of_test].num_of_roots != test[num_of_test].num_of_roots;
+        int x1_comp = root_compare(test[num_of_test].x1, answers[num_of_test].x1);
+        int x2_comp = root_compare(test[num_of_test].x2, answers[num_of_test].x2);
+        int nroots_comp = answers[num_of_test].num_of_roots == test[num_of_test].num_of_roots;
 
-        if (x1_comp || x2_comp || nroots_comp) {
+        if (!(x1_comp) || !(x2_comp) || !(nroots_comp)) {
             failed_tests++;
             colored_print(RED, "Test number %d failed.\n", num_of_test + 1);
             }
         
-        if (x1_comp) {
+        if (!(x1_comp)) {
             printf("Received value for x1 %.2lf instead of %.2lf.\n",
                    test[num_of_test].x1, answers[num_of_test].x1);
         }
 
-        if (x2_comp) {
+        if (!(x2_comp)) {
             printf("Received value for x2 %.2lf instead of %.2lf.\n",
                    test[num_of_test].x2, answers[num_of_test].x2);
         }
 
-        if (nroots_comp) {
+        if (!(nroots_comp)) {
             printf("Received number of roots: ");
             int root_print = root_cases_print(test[num_of_test].num_of_roots);
             if (root_print) {
